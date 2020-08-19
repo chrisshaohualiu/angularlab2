@@ -6,6 +6,7 @@ import { Post } from '../interfaces/post';
   styleUrls: ['./social-posts.component.css'],
 })
 export class SocialPostsComponent implements OnInit {
+  showPopUp: boolean = false;
   posts: Post[] = [
     {
       title: 'Grand Circus',
@@ -22,8 +23,14 @@ export class SocialPostsComponent implements OnInit {
   ];
   constructor() {}
 
+  displayPopUp() {
+    console.log(this.showPopUp);
+    this.showPopUp = true;
+  }
+
   onSubmit(newPost: Post) {
     this.posts.unshift(newPost);
+    this.showPopUp = false;
     console.log(newPost);
   }
 

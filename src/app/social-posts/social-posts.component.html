@@ -1,8 +1,17 @@
-<app-post-form (submitted)="onSubmit($event)"></app-post-form>
-<ul class="post-list">
-  <app-post
-    *ngFor="let post of posts; index as i"
-    [postRef]="post"
-    (deleted)="onDelete(i)"
-  ></app-post>
-</ul>
+<main class="pop-up-container">
+  <app-post-form
+    *ngIf="showPopUp"
+    class="pop-up"
+    (submitted)="onSubmit($event)"
+  ></app-post-form>
+</main>
+<main class="main">
+  <button (click)="displayPopUp()">New Thought</button>
+  <ul class="post-list">
+    <app-post
+      *ngFor="let post of posts; index as i"
+      [postRef]="post"
+      (deleted)="onDelete(i)"
+    ></app-post>
+  </ul>
+</main>
